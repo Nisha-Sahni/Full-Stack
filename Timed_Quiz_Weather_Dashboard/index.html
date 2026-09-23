@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz & Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <h1>Quiz & Weather Dashboard</h1>
+            <p>Timed multi-category quiz with live weather</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card setup-card">
+            <h2>Start Quiz</h2>
+
+            <label for="playerName">Your Name</label>
+            <input id="playerName" type="text" placeholder="Enter your name" maxlength="30">
+
+            <label for="category">Category</label>
+            <select id="category">
+                <option value="web">Web Development</option>
+                <option value="javascript">JavaScript</option>
+                <option value="dataai">Data & AI</option>
+            </select>
+
+            <label>Time per Question</label>
+            <div class="time-options">
+                <button class="time-btn active" data-time="15">15 sec</button>
+                <button class="time-btn" data-time="20">20 sec</button>
+                <button class="time-btn" data-time="30">30 sec</button>
+            </div>
+
+            <button id="startQuiz" class="primary-btn">Start Quiz</button>
+            <p id="setupMessage" class="message"></p>
+        </section>
+
+        <section id="quizSection" class="card quiz-card hidden">
+            <div class="quiz-top">
+                <span id="progress">Question 1 / 5</span>
+                <span id="timer">15s</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+            <h2 id="question"></h2>
+            <div id="options" class="options"></div>
+
+            <p id="feedback" class="feedback"></p>
+        </section>
+
+        <section id="resultSection" class="card result-card hidden">
+            <h2>Quiz Completed!</h2>
+            <p id="resultText"></p>
+            <button id="playAgain" class="primary-btn">Play Again</button>
+        </section>
+
+        <section class="card leaderboard-card">
+            <div class="section-heading">
+                <div>
+                    <h2>Leaderboard</h2>
+                    <p>Top scores saved in your browser</p>
+                </div>
+                <button id="clearLeaderboard" class="danger-btn">Clear Leaderboard</button>
+            </div>
+            <div id="leaderboard"></div>
+        </section>
+
+        <!-- WEATHER DASHBOARD -->
+<section class="weather-section">
+    <div class="weather-heading">
+        <div>
+            <span class="eyebrow">LIVE WEATHER</span>
+            <h2>Weather Dashboard</h2>
+            <p>Search any city to view current weather and forecast.</p>
+        </div>
+    </div>
+
+    <div class="weather-card">
+        <!-- Search -->
+        <div class="weather-search">
+            <input
+                type="text"
+                id="cityInput"
+                placeholder="Enter city name..."
+            >
+            <button id="weatherBtn">Get Weather</button>
+        </div>
+
+        <p id="weatherMessage"></p>
+
+        <!-- Current Weather -->
+        <div id="weatherContent" class="hidden">
+
+            <div class="current-weather">
+
+                <div class="location-info">
+                    <span class="small-label">CURRENT WEATHER</span>
+                    <h3 id="cityName">--</h3>
+                    <p id="weatherCondition">--</p>
+
+                    <div class="temperature">
+                        <span id="temperature">--</span>°C
+                    </div>
+                </div>
+
+                <div class="weather-icon" id="weatherIcon">
+                    ☀️
+                </div>
+
+            </div>
+
+            <!-- Weather details -->
+            <div class="weather-details">
+
+                <div class="weather-detail">
+                    <span>💧</span>
+                    <div>
+                        <small>Humidity</small>
+                        <strong id="humidity">--</strong>
+                    </div>
+                </div>
+
+                <div class="weather-detail">
+                    <span>💨</span>
+                    <div>
+                        <small>Wind Speed</small>
+                        <strong id="wind">--</strong>
+                    </div>
+                </div>
+
+                <div class="weather-detail">
+                    <span>🌡️</span>
+                    <div>
+                        <small>Feels Like</small>
+                        <strong id="feelsLike">--</strong>
+                    </div>
+                </div>
+
+                <div class="weather-detail">
+                    <span>🌧️</span>
+                    <div>
+                        <small>Rain Probability</small>
+                        <strong id="rainProbability">--</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Forecast -->
+            <div class="forecast-section">
+                <h3>3-Day Forecast</h3>
+
+                <div id="forecast" class="forecast-grid"></div>
+            </div>
+
+            <p class="weather-source">
+                Weather data provided by Open-Meteo
+            </p>
+
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <p>JavaScript Lab Experiment — DOM, Events, Timers, Closures/State, Local Storage & Fetch API</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
